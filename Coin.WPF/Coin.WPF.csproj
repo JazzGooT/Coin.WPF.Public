@@ -15,4 +15,15 @@
     <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="7.0.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Coin.Domain\Coin.Domain.csproj" />
+    <ProjectReference Include="..\Coin.Web\Coin.Web.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Fonts\RubikRegular.ttf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
 </Project>

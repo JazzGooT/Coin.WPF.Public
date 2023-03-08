@@ -1,0 +1,36 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <!--Hyperlink-->
+    <Style TargetType="Hyperlink">
+        <Setter Property="FontFamily" Value="{DynamicResource RubikRegular}" />
+    </Style>
+    <!--HeaderHyperMain-->
+    <Style BasedOn="{StaticResource {x:Type Hyperlink}}" TargetType="Hyperlink" x:Key="HeaderHyperMain">
+        <Setter Property="FontSize" Value="16"/>
+        <Setter Property="FontFamily" Value="{DynamicResource RubikRegular}" />
+        <Setter Property="TextDecorations" Value="None" />
+        <Setter Property="Foreground" Value="{DynamicResource BrushTextColor}" />
+
+    </Style>
+    <!--HeaderHyperExchange-->
+    <Style BasedOn="{StaticResource {x:Type Hyperlink}}" TargetType="Hyperlink" x:Key="HeaderHyperExchange">
+        <Setter Property="FontSize" Value="16"/>
+        <Setter Property="FontFamily" Value="{DynamicResource RubikRegular}" />
+        <Setter Property="TextDecorations" Value="None" />
+        <Setter Property="Foreground" Value="{DynamicResource BrushNonActiveTextColor}" />
+    </Style>
+    <!--SymbolHyperExchange-->
+    <Style BasedOn="{StaticResource {x:Type Hyperlink}}" TargetType="Hyperlink" x:Key="SymbolHyperExchange">
+        <Setter Property="FontSize" Value="16"/>
+        <Setter Property="FontFamily" Value="{DynamicResource RubikRegular}" />
+        <Setter Property="TextDecorations" Value="None" />
+        <Setter Property="Foreground" Value="{DynamicResource BrushNonActiveTextColor}" />
+    </Style>
+    <!--NameHyperExchange-->
+    <Style BasedOn="{StaticResource {x:Type Hyperlink}}" TargetType="Hyperlink" x:Key="NameHyperExchange">
+        <Setter Property="FontSize" Value="16"/>
+        <Setter Property="FontFamily" Value="{DynamicResource RubikRegular}" />
+        <Setter Property="TextDecorations" Value="None" />
+        <Setter Property="Foreground" Value="{DynamicResource BrushNonActiveTextColor}" />
+    </Style>
+</ResourceDictionary>

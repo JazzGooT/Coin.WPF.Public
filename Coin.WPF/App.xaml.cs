@@ -2,6 +2,7 @@
 using Coin.WPF.MVVM.ViewModel;
 using Microsoft.Extensions.DependencyInjection;
 using System;
+using System.Threading;
 using System.Windows;
 
 namespace Coin.WPF
@@ -32,6 +33,8 @@ namespace Coin.WPF
         }
         protected override void OnStartup(StartupEventArgs e)
         {
+            var languageCode = Coin.WPF.Properties.Settings.Default.languageCode;
+            Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo(languageCode);
             var mainWindow = _serviceProvider.GetRequiredService<MainWindow>();
             mainWindow.Show();
             base.OnStartup(e);

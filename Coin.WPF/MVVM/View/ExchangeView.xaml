@@ -7,6 +7,12 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
-            
+        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+            <TextBlock Text="Exchange"
+                   Foreground="White"
+                       FontSize="25"/>
+            <Button Content="Home" Height="30"
+                    Command="{Binding NavigateToHomeCommand}"/>
+        </StackPanel>
     </Grid>
 </UserControl>

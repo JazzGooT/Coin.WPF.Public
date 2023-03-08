@@ -1,5 +1,5 @@
 ﻿using Coin.WPF.Core;
-using Coin.WPF.Services;
+using Coin.WPF.Services.NavigationServices;
 
 namespace Coin.WPF.MVVM.ViewModel
 {

@@ -9,9 +9,9 @@ namespace Coin.Web
         {
             _cancellationTokenSource = new CancellationTokenSource();
         }
-        public async Task<T> SendAsync<T>(string url, TimeSpan interval, Action<T> callback, CancellationToken cancellationToken = default)
+        public async Task<T> SendAsync<T>(string url, TimeSpan interval, Action<T> callback, CancellationToken cancellationToken)
         {
-            while (cancellationToken.IsCancellationRequested)
+            while (!cancellationToken.IsCancellationRequested)
             {
                 using (var client = new HttpClient())
                 {
@@ -21,6 +21,7 @@ namespace Coin.Web
                         responce.EnsureSuccessStatusCode();
                         var content = await responce.Content.ReadAsStringAsync();
                         var result = JsonConvert.DeserializeObject<T>(content);
+                        callback(result);
                     }
                     catch (Exception ex)
                     {

@@ -1,5 +1,6 @@
 ﻿using Coin.WPF.Core;
 using Coin.WPF.MVVM.ViewModel;
+using Coin.WPF.Services.NavigationServices;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Threading;
@@ -19,13 +20,13 @@ namespace Coin.WPF
 
             services.AddSingleton<MainWindow>(provider => new MainWindow
             {
-                DataContext = provider.GetRequiredService<MainWindow>()
+                DataContext = provider.GetRequiredService<MainViewModel>()
             });
             services.AddSingleton<MainViewModel>();
             services.AddSingleton<HomeViewModel>();
             services.AddSingleton<ExchangeViewModel>();
             services.AddSingleton<DetailsViewModel>();
-
+            services.AddSingleton<INavigationService, NavigationService>();
             services.AddSingleton<Func<Type, ViewModel>>(servicesProvider => viewModelType =>
                 (ViewModel)servicesProvider.GetRequiredService(viewModelType));
 

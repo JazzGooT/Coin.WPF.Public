@@ -1,6 +1,6 @@
 ﻿using Coin.WPF.Core;
 
-namespace Coin.WPF.Services
+namespace Coin.WPF.Services.NavigationServices
 {
     public interface INavigationService
     {

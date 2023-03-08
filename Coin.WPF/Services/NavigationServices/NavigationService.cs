@@ -1,7 +1,7 @@
 ﻿using Coin.WPF.Core;
 using System;
 
-namespace Coin.WPF.Services
+namespace Coin.WPF.Services.NavigationServices
 {
     public class NavigationService : ObservableObject, INavigationService
     {

@@ -1,56 +1,55 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <OutputType>WinExe</OutputType>
-    <TargetFramework>net6.0-windows</TargetFramework>
-    <Nullable>disable</Nullable>
-    <UseWPF>true</UseWPF>
+	<OutputType>WinExe</OutputType>
+	<TargetFramework>net6.0-windows</TargetFramework>
+	<Nullable>disable</Nullable>
+	<UseWPF>true</UseWPF>
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="MVVM\Model\" />
+	<PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="7.0.0" />
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="7.0.0" />
+	<ProjectReference Include="..\Coin.Domain\Coin.Domain.csproj" />
+	<ProjectReference Include="..\Coin.Web\Coin.Web.csproj" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Coin.Domain\Coin.Domain.csproj" />
-    <ProjectReference Include="..\Coin.Web\Coin.Web.csproj" />
+	<Content Include="Fonts\RubikRegular.ttf">
+	  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+	</Content>
   </ItemGroup>
 
   <ItemGroup>
-    <Content Include="Fonts\RubikRegular.ttf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
+	<Compile Update="Language\Language.Designer.cs">
+	  <DesignTime>True</DesignTime>
+	  <AutoGen>True</AutoGen>
+	  <DependentUpon>Language.resx</DependentUpon>
+	</Compile>
+	<Compile Update="Properties\Settings.Designer.cs">
+	  <DesignTimeSharedInput>True</DesignTimeSharedInput>
+	  <AutoGen>True</AutoGen>
+	  <DependentUpon>Settings.settings</DependentUpon>
+	</Compile>
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Update="Language\Language.Designer.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Language.resx</DependentUpon>
-    </Compile>
-    <Compile Update="Properties\Settings.Designer.cs">
-      <DesignTimeSharedInput>True</DesignTimeSharedInput>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Settings.settings</DependentUpon>
-    </Compile>
+	  <EmbeddedResource Update="Language\Language.en.resx">
+		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+	  </EmbeddedResource>
+	<EmbeddedResource Update="Language\Language.resx">
+	  <Generator>PublicResXFileCodeGenerator</Generator>
+	  <LastGenOutput>Language.Designer.cs</LastGenOutput>
+	</EmbeddedResource>
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Update="Language\Language.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>Language.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Update="Properties\Settings.settings">
-      <Generator>SettingsSingleFileGenerator</Generator>
-      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
-    </None>
+	<None Update="Properties\Settings.settings">
+	  <Generator>SettingsSingleFileGenerator</Generator>
+	  <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+	</None>
   </ItemGroup>
 
 </Project>

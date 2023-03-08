@@ -3,10 +3,20 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:Coin.WPF"
+        xmlns:controls="clr-namespace:Coin.WPF.Controls"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Coin" Height="590" Width="790" Background="{DynamicResource BrushBackGroundColor}">
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="100"/>
+            <RowDefinition Height="*"/>
 
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0" Margin="40,25,40,0">
+            <controls:HeaderBar />
+        </Grid>
+        <ContentControl Grid.Row="1" Content="{Binding Navigation.CurrentView}" Margin="40,25,40,20">
+
+        </ContentControl>
     </Grid>
 </Window>

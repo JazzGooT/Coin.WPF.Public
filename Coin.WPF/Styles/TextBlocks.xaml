@@ -46,4 +46,15 @@
         <Setter Property="Foreground" Value="{DynamicResource BrushTextColor}" />
         <Setter Property="FontSize" Value="24" />
     </Style>
+    <!--CurrencyItem-->
+    <Style BasedOn="{StaticResource Currency}" TargetType="TextBlock" x:Key="CurrencyItem">
+        <Setter Property="Foreground" Value="{DynamicResource BrushTextColor}" />
+        <Setter Property="FontSize" Value="24" />
+    </Style>
+    <!--CurrencyHeaderItem-->
+    <Style BasedOn="{StaticResource Currency}" TargetType="TextBlock" x:Key="CurrencyHeaderItem">
+        <Setter Property="Foreground" Value="{DynamicResource BrushNonActiveTextColor}" />
+        <Setter Property="FontSize" Value="20" />
+        <Setter Property="FontWeight" Value="Light" />
+    </Style>
 </ResourceDictionary>

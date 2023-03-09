@@ -1,4 +1,4 @@
-﻿namespace Coin.Domain.Entity
+﻿namespace Coin.Domain.Entity.AssetsEntity
 {
     public class Item
     {

@@ -10,8 +10,6 @@ namespace Coin.WPF.MVVM.View
         public DetailsView()
         {
             InitializeComponent();
-            var text = App.Current.Resources["Currency"];
-            Details.Text = text.ToString();
         }
     }
 }

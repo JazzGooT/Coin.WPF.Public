@@ -4,6 +4,7 @@ using Coin.WPF.MVVM.Model;
 using Coin.WPF.Services.ConverDataServices;
 using System;
 using System.Threading;
+using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Documents;
 
@@ -14,37 +15,35 @@ namespace Coin.WPF.Controls
     /// </summary>
     public partial class MainContent : UserControl
     {
-        CoinHttp httpPoller = new CoinHttp();
-        private CancellationTokenSource cancellationTokenSource;
+        private CancellationTokenSource cancellationTokenSource = new();
+        public ICoinHttp _coinHttp = new CoinHttp();
+
         public MainContent()
         {
             InitializeComponent();
-            ShowText();
+            ShowText(_coinHttp);
         }
-        private async void ShowText()
-        {
-            try
-            {
-                cancellationTokenSource = new CancellationTokenSource();
-                await httpPoller.SendAsync<AssetsRoot>("https://api.coincap.io/v2/assets?limit=4", TimeSpan.FromSeconds(1), result =>
-                {
-                    CoinListMain.ItemsSource = ConvertList.ConvertModel(result);
-                }, cancellationTokenSource.Token);
-            }
-            catch (OperationCanceledException)
-            {
 
-            }
+        public async void ShowText(ICoinHttp coinHttp)
+        {
+
+            await coinHttp.SendAsync<AssetsRoot>("https://api.coincap.io/v2/assets?limit=4", TimeSpan.FromSeconds(1), result =>
+            {
+                CoinListMain.ItemsSource = ConvertList.ConvertModel(result);
+            }, cancellationTokenSource.Token);
         }
-        private void NameHyperlink_Click(object sender, System.Windows.RoutedEventArgs e)
+        private void NameHyperlink_Click(object sender, RoutedEventArgs e)
         {
             Hyperlink hyperlink = sender as Hyperlink;
             if (hyperlink != null)
             {
-                App.Current.Resources["Currency"] = (hyperlink.DataContext as MainModel)?.Name;
-
+                App.Current.Resources["Currency"] = (hyperlink.DataContext as MainModel)?.Symbol;
             }
-
+        }
+        public void CancelOperation()
+        {
+            cancellationTokenSource.Cancel();
         }
     }
 }
+

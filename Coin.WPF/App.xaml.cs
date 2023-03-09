@@ -1,4 +1,5 @@
-﻿using Coin.WPF.Core;
+﻿using Coin.Web;
+using Coin.WPF.Core;
 using Coin.WPF.MVVM.ViewModel;
 using Coin.WPF.Services.NavigationServices;
 using Microsoft.Extensions.DependencyInjection;
@@ -27,6 +28,8 @@ namespace Coin.WPF
             services.AddSingleton<ExchangeViewModel>();
             services.AddSingleton<DetailsViewModel>();
             services.AddSingleton<INavigationService, NavigationService>();
+            services.AddSingleton<ICoinHttp, CoinHttp>();
+
             services.AddSingleton<Func<Type, ViewModel>>(servicesProvider => viewModelType =>
                 (ViewModel)servicesProvider.GetRequiredService(viewModelType));
 

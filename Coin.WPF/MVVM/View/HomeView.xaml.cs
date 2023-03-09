@@ -10,6 +10,7 @@ namespace Coin.WPF.MVVM.View
         public HomeView()
         {
             InitializeComponent();
+
         }
     }
 }

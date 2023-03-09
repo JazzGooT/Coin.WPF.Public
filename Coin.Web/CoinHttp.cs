@@ -2,7 +2,7 @@
 
 namespace Coin.Web
 {
-    public class CoinHttp
+    public class CoinHttp : ICoinHttp
     {
         private readonly CancellationTokenSource _cancellationTokenSource;
         public CoinHttp()
@@ -31,10 +31,6 @@ namespace Coin.Web
                 await Task.Delay(interval, cancellationToken);
             }
             return default(T);
-        }
-        public void Stop()
-        {
-            _cancellationTokenSource.Cancel();
         }
     }
 }

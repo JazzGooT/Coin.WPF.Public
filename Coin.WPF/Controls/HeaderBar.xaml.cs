@@ -10,9 +10,12 @@ namespace Coin.WPF.Controls
     /// </summary>
     public partial class HeaderBar : UserControl
     {
+
         public HeaderBar()
         {
             InitializeComponent();
+
+
         }
         private void Home_Click(object sender, RoutedEventArgs e)
         {
@@ -22,9 +25,7 @@ namespace Coin.WPF.Controls
         private void Exchange_Click(object sender, RoutedEventArgs e)
         {
             Home.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#C7C8CA"));
-
             Exchange.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FFFFFF"));
-
         }
         private void Language_Click(object sender, RoutedEventArgs e)
         {

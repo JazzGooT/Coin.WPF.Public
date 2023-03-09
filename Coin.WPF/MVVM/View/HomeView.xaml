@@ -17,7 +17,7 @@
                     <controls:MainTitle/>
                 </Grid>
                 <Grid Grid.Row="1">
-                    <controls:MainContent />
+                    <controls:MainContent/>
                 </Grid>
             </Grid>
         </StackPanel>    

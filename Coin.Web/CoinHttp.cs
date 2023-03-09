@@ -4,10 +4,9 @@ namespace Coin.Web
 {
     public class CoinHttp : ICoinHttp
     {
-        private readonly CancellationTokenSource _cancellationTokenSource;
         public CoinHttp()
         {
-            _cancellationTokenSource = new CancellationTokenSource();
+
         }
         public async Task<T> SendAsync<T>(string url, TimeSpan interval, Action<T> callback, CancellationToken cancellationToken)
         {
@@ -28,7 +27,7 @@ namespace Coin.Web
                         // handle exception//
                     }
                 }
-                await Task.Delay(interval, cancellationToken);
+                await Task.Delay(interval);
             }
             return default(T);
         }

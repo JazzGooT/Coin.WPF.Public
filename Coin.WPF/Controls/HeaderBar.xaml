@@ -31,7 +31,11 @@
                 </Hyperlink>
             </TextBlock>
             <Grid Grid.Column="2" Margin="0,0,10,0" HorizontalAlignment="Right">
-                <TextBox x:Name="SearchTextBox" Style="{DynamicResource HeaderSearchTextBox}" />
+                <TextBox x:Name="SearchTextBox" Style="{DynamicResource HeaderSearchTextBox}" PreviewKeyDown="EnterClicked">
+                    <TextBox.InputBindings>
+                        <KeyBinding Command="{Binding NavigateToDetailsCommand}" Key="Enter" />
+                    </TextBox.InputBindings>
+                </TextBox>
             </Grid>
             <Grid Grid.Column="3" Margin="0,0,30,0" HorizontalAlignment="Right">
                 <Button x:Name="SearchButtot" Style="{DynamicResource SearchButton}" Content="Search" />

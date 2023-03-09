@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Input;
 using System.Windows.Media;
 
 namespace Coin.WPF.Controls
@@ -45,5 +46,15 @@ namespace Coin.WPF.Controls
                 Environment.Exit(0);
             }
         }
+        private void EnterClicked(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Return)
+            {
+                App.Current.Resources["SearchTextBox"] = SearchTextBox.Text;
+                _detailsContent.StartToken();
+                //e.Handled = true;
+            }
+        }
+
     }
 }

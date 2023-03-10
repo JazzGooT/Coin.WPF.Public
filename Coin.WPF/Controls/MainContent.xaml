@@ -4,10 +4,9 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Coin.WPF.Controls"
-             mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+             mc:Ignorable="d">
     <Grid>
-        <ListBox x:Name="CoinListMain">
+        <ListBox x:Name="CoinListMain" Height="410">
             <ListBox.ItemTemplate >
                 <DataTemplate>
                     <Grid>
@@ -23,7 +22,6 @@
                         <Grid  Margin="0,0,20,0">
                             <Image Source="{Binding Path}" Style="{DynamicResource CurrencyImage}" />
                         </Grid>
-
                         <Grid Grid.Column="1">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="80"/>
@@ -36,9 +34,7 @@
                                         <TextBlock Text="{Binding Symbol}" Style="{DynamicResource CurrencySymbol}"/> 
                                     </Hyperlink>
                                 </TextBlock>
-
                             </Grid>
-
                             <Grid Grid.Column="1">
                                 <TextBlock>
                                     <Hyperlink x:Name="NameHyperlink"  Command="{Binding ElementName=CoinListMain, Path=DataContext.NavigateToDetailsCommand}" CommandParameter="{Binding}"
@@ -46,7 +42,6 @@
                                         <TextBlock Text="{Binding Name}" Style="{DynamicResource CurrencyName}" />
                                     </Hyperlink>
                                 </TextBlock>
-
                             </Grid>
                         </Grid>
                         <Grid Grid.Column="2">
@@ -55,7 +50,6 @@
                         <Grid Grid.Column="3">
                             <TextBlock Text="{Binding Change}" Style="{DynamicResource CurrencyChange}" />
                         </Grid>
-
                     </Grid>
                 </DataTemplate>
             </ListBox.ItemTemplate>

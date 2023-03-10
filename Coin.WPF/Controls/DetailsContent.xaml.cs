@@ -21,29 +21,22 @@ namespace Coin.WPF.Controls
         }
         private async void ShowExchange(ICoinHttp coinHttp, CancellationToken cancellationToken)
         {
-
             try
             {
-
                 var item = App.Current.Resources["SearchTextBox"];
                 var itemSearch = App.Current.Resources["Currency"];
-                if (item == null) item = "";
-
-                await coinHttp.SendAsync<ExchangeRoot>($"https://api.coincap.io/v2/markets?baseSymbol={item.ToString()}&limit=3", TimeSpan.FromSeconds(1), result =>
+                if (item == null)
+                {
+                    item = "";
+                    await coinHttp.SendAsync<ExchangeRoot>($"https://api.coincap.io/v2/markets?baseSymbol={itemSearch.ToString()}&limit=10", TimeSpan.FromSeconds(1), result =>
+                    {
+                        ExchangeListMap.ItemsSource = ConvertExchange.ConvertModel(result);
+                    }, cancellationToken);
+                }
+                await coinHttp.SendAsync<ExchangeRoot>($"https://api.coincap.io/v2/markets?baseSymbol={item.ToString().ToUpper()}&limit=10", TimeSpan.FromSeconds(1), result =>
                 {
                     ExchangeListMap.ItemsSource = ConvertExchange.ConvertModel(result);
                 }, cancellationToken);
-
-
-
-                //await coinHttp.SendAsync<ExchangeRoot>($"https://api.coincap.io/v2/markets?baseSymbol={itemSearch.ToString()}&limit=3", TimeSpan.FromSeconds(1), result =>
-                // {
-                //     ExchangeListMap.ItemsSource = ConvertExchange.ConvertModel(result);
-                // }, cancellationToken);
-
-
-
-
             }
             catch (OperationCanceledException)
             {

@@ -15,8 +15,6 @@
         <Grid Grid.Row="0" Margin="40,25,40,0">
             <controls:HeaderBar />
         </Grid>
-        <ContentControl Grid.Row="1" Content="{Binding Navigation.CurrentView}" Margin="40,25,40,20">
-
-        </ContentControl>
+        <ContentControl Grid.Row="1" Content="{Binding Navigation.CurrentView}" Margin="40,25,40,25"/>
     </Grid>
 </Window>

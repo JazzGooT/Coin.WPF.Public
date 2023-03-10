@@ -29,7 +29,7 @@ namespace Coin.WPF.Controls
         {
             try
             {
-                await coinHttp.SendAsync<AssetsRoot>("https://api.coincap.io/v2/assets?limit=4", TimeSpan.FromSeconds(1), result =>
+                await coinHttp.SendAsync<AssetsRoot>("https://api.coincap.io/v2/assets?limit=10", TimeSpan.FromSeconds(1), result =>
                 {
                     CoinListMain.ItemsSource = ConvertList.ConvertModel(result);
                 }, cancellationToken);

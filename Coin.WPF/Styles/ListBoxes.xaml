@@ -3,7 +3,9 @@
     <!--ListBox-->
     <Style TargetType="ListBox">
         <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+        <Setter Property="VerticalContentAlignment" Value="Stretch" />
         <Setter Property="Background" Value="{DynamicResource BrushBackGroundColor}" />
         <Setter Property="BorderBrush" Value="{DynamicResource BrushBackGroundColor}" />
+        <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Auto"/>
     </Style>
 </ResourceDictionary>

@@ -7,7 +7,6 @@ namespace Coin.WPF.Core
     {
         private readonly Predicate<object> _canExecute;
         private readonly Action<object> _execute;
-
         public RelayCommand(Action<object> execute, Predicate<object> canExecute) => (_canExecute, _execute) = (canExecute, execute);
         public event EventHandler CanExecuteChanged
         {
